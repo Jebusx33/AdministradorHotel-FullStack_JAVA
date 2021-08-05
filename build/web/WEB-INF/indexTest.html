@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>JSP Page</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/color-glass/48/000000/5-star-hotel.png" type="image/x-icon">
+    <!--/****CDN****/-->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Tailwind CSS 
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- SCSS
+        <link rel="stylesheet" href="assets/css/estilosPrincipal.scss" title="Principal">  -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/stylesPrincipal.css" title="Principal">
+</head>
+
+<body>
+
+    <header>
+        <div class="barNav">
+            <div class="logo">Beach HOTEL</div>
+            <div class="btnMenu">
+                <button onclick="myFunction()" type="button" class="btn"><i class='bx bx-align-left'></i></button>
+
+            </div>
+            <div class="MenuBar">
+                <div class="logOut">
+                    <button type="button" class="btn btn-outline-success"><i class='bx bx-run'> Salir</i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper layout" id="layout">
+        <aside>
+            <div class="leftMenu one" id='ocultar-y-mostrar'>
+                <div class="userPresentation">
+                    <h3>Bienvenido</h3>
+                    <div class="avatarUser">
+                             <img src="" alt="admin">
+                    </div>
+                    <div class="nameUser">
+                        <p>Nombre y Apellido</p>
+                    </div>
+                    <div class="cargoUser">
+                        <p>Cargo</p>
+                    </div>
+                </div>
+                <div class="menu">
+                    <ul class="list-group">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+
+        <main>
+            <div class="two rigthMain" id="rigthMain">
+                <div class="rowOne">
+                    <div class="cardOne cards">
+                        <div class="titleCards">
+                            <h5>Precio Noche</h5>
+                            <p>$1000 valores</p>
+                        </div>
+                        <div class="contenCards">
+                            <div class="configGear">
+                                <i class='bx bx-cog'></i>
+                            </div>
+                            <div class="imgCards">
+                                <!-- <i class='bx bxs-wallet' ></i>-->
+                                <img class="cardImage" src="../assets/img/wallet.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardTwo cards">
+                        <div class="titleCards">
+                            <h5>Habitaciones Libres</h5>
+                            <p>500 Dormitorios</p>
+                        </div>
+                        <div class="contenCards">
+                            <div class="configGear">
+                                <i class='bx bx-cog'></i>
+                            </div>
+                            <div class="imgCards">
+                                <img class="cardImage" src="../assets/img/eyes.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardTree cards ">
+                        <div class="titleCards">
+                            <h5>Huespedes Ingresados</h5>
+                            <p>200 Huespedes</p>
+                        </div>
+                        <div class="contenCards">
+                            <div class="configGear">
+                                <i class='bx bx-cog'></i>
+                            </div>
+                            <div class="imgCards">
+                                <img class="cardImage" src="../assets/img/Huespedes.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rowTwo">
+                    <div class="btnIngresarHuesped  md-3">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" data-bs-whatever="@mdo"> <i class='bx bxs-group'> Ingresar Huesped</i></button>
+
+
+
+                    </div>
+                    <div class="modalRegHuesped">
+                        <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Ingresar Datos</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body md-1">
+                                        <form action="svHuesped" method="POST">
+
+                                            <div class="form-row md3">
+                                                <div class="form-group ">
+                                                    <label for="nombre">Nombre:</label>
+                                                    <input class="form-control" type="text" name="nombre" id="nombre"
+                                                        placeholder="Ingrese su Nombre">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="nombre">Apellido:</label>
+                                                    <input class="form-control" type="text" name="apellido"
+                                                        id="apellido" placeholder="Ingrese su Apellido">
+                                                </div>
+                                            </div>
+
+                                            <br>
+                                            <div class="form-row md3 mdlRow">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="lblTipoDoc">Doc. Tipo:</label>
+                                                    <input class="form-control" list="datalistOptions"
+                                                        id="exampleDataList" placeholder="DNI">
+                                                    <datalist id="datalistOptions">
+                                                        <option value="DNI">
+                                                        <option value="LE">
+                                                        <option value="LC">
+                                                        <option value="PASAPORTE">
+                                                        <option value="OTRO">
+                                                    </datalist>
+                                                </div>
+
+
+                                                <div class="form-group col-sm-7">
+                                                    <label for="lblNumDoc">Doc. Numero:</label>
+                                                    <input class="form-control" type="text" name="numDocumento"
+                                                        id="numDocumento" placeholder="123456789">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row md-5 mdlRow">
+                                                <label for="lblFechaNac">Fecha de Nacimiento:</label>
+                                                <input class="form-control" type="date" name="fechaNac" id="fechaNac"
+                                                    placeholder="123456789">
+                                            </div>
+                                            <br>
+                                            <div class="row g-0 ">
+                                                <label for="lblDireccion" class="col-6 col-md-4">Direccion:</label>
+                                                <input class="form-control col-sm-6 col-md-8" type="text"
+                                                    name="direccion" id="direccion" placeholder="Av.sarasa 1662">
+                                            </div>
+                                            <br>
+                                            <div class="row g-0 ">
+                                                <label for="lblProfecion " class="col-6 col-md-4">Profecion:</label>
+                                                <input class="form-control col-sm-6 col-md-8 " type="text"
+                                                    name="profecion" id="profecion"
+                                                    placeholder="Estudiante, Medico, etc.">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop">
+                                            Cancelar
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Modal2">
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Cancelar Registro</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>¿Estás seguro de cancelar el registro?</p>
+                                    </div>
+                                    <div class="modal-footer">
+
+
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modalRegHuesped">si</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="rowThree">
+
+                    <div class="titleHuespedIn">
+                        <hr class="lineaColores">
+                        <h5>Ultimo Huesped Ingresado</h5>
+                        <hr class="lineaColores">
+                    </div>
+                    <table class="table tablaHuespedIn">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apelldo</th>
+                                <th scope="col">Tipo de Documento</th>
+                                <th scope="col">Numero de Documento</th>
+                                <th scope="col">Fecha de Nacimiento</th>
+                                <th scope="col">Direccion</th>
+                                <th scope="col">Profecion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-success">
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="rowFour">
+                    <div class="tileHuespedesList">
+
+                        <hr class="lineaColores">
+                        <h5>Huespedes Ingresados</h5>
+                        <hr class="lineaColores">
+
+                    </div>
+
+                    <div class="tableHuespedes">
+                        <table class="table caption-top">
+                            <!--  <caption>Lista de huespedes</caption> -->
+                            <thead>
+                                <tr>
+                                    <th scope="col">Acciones</th>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apelldo</th>
+                                    <th scope="col">Tipo de Documento</th>
+                                    <th scope="col">Numero de Documento</th>
+                                    <th scope="col">Fecha de Nacimiento</th>
+                                    <th scope="col">Direccion</th>
+                                    <th scope="col">Profecion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+
+                                    <th scope="row">
+                                        <button type="button" class="btn btn-warning"><i class='bx bx-pencil'> Editar</i></button>
+                                        <button type="button" class="btn btn-danger"><i class='bx bxs-trash'> Eliminar</i></button>
+                                    </th>
+                                    <td>1</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>Mark</td>
+                                    <td>Mark</td>
+                                </tr>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    </main>
+    <!-- JS -->
+    <!-- build:js js/main.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="../assets/js/principal.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>
