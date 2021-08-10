@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,91 +21,80 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Habitacion")
-public class Habitacion extends Hotel implements Serializable{
+public class Habitacion implements Serializable {
    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    int id_habitacion;
     @Basic
-    String tipo;
-    String nombreHabitacion;
-    int capacidadPertsonas;
+    int pisoHabit;
+    String letraHabit;
+    String tipoHabit;
+    String nombreHabit;
+    double precioNoche;
     
-    @OneToMany
-     List<Huesped> listaHuespedes ;
-    @OneToMany
-     List<Reserva> listaReservas ;
-
+  
+   
     public Habitacion() {
     }
 
-    public Habitacion(String tipo, String nombreHabitacion, int capacidadPertsonas, List<Huesped> listaHuespedes, List<Reserva> listaReservas) {
-        this.tipo = tipo;
-        this.nombreHabitacion = nombreHabitacion;
-        this.capacidadPertsonas = capacidadPertsonas;
-        this.listaHuespedes = listaHuespedes;
-        this.listaReservas = listaReservas;
+    public Habitacion(int id_habitacion, int pisoHabit, String letraHabit, String tipoHabit, String nombreHabit, double precioNoche) {
+        this.id_habitacion = id_habitacion;
+        this.pisoHabit = pisoHabit;
+        this.letraHabit = letraHabit;
+        this.tipoHabit = tipoHabit;
+        this.nombreHabit = nombreHabit;
+        this.precioNoche = precioNoche;
     }
 
-    public String getTipo() {
-        return tipo;
+    public int getId_habitacion() {
+        return id_habitacion;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setId_habitacion(int id_habitacion) {
+        this.id_habitacion = id_habitacion;
     }
 
-    public String getNombreHabitacion() {
-        return nombreHabitacion;
+    public int getPisoHabit() {
+        return pisoHabit;
     }
 
-    public void setNombreHabitacion(String nombreHabitacion) {
-        this.nombreHabitacion = nombreHabitacion;
+    public void setPisoHabit(int pisoHabit) {
+        this.pisoHabit = pisoHabit;
     }
 
-    public int getCapacidadPertsonas() {
-        return capacidadPertsonas;
+    public String getLetraHabit() {
+        return letraHabit;
     }
 
-    public void setCapacidadPertsonas(int capacidadPertsonas) {
-        this.capacidadPertsonas = capacidadPertsonas;
+    public void setLetraHabit(String letraHabit) {
+        this.letraHabit = letraHabit;
     }
 
-    public List<Huesped> getListaHuespedes() {
-        return listaHuespedes;
+    public String getTipoHabit() {
+        return tipoHabit;
     }
 
-    public void setListaHuespedes(List<Huesped> listaHuespedes) {
-        this.listaHuespedes = listaHuespedes;
+    public void setTipoHabit(String tipoHabit) {
+        this.tipoHabit = tipoHabit;
     }
 
-    public List<Reserva> getListaReservas() {
-        return listaReservas;
+    public String getNombreHabit() {
+        return nombreHabit;
     }
 
-    public void setListaReservas(List<Reserva> listaReservas) {
-        this.listaReservas = listaReservas;
+    public void setNombreHabit(String nombreHabit) {
+        this.nombreHabit = nombreHabit;
     }
 
-    public int getId() {
-        return id;
+    public double getPrecioNoche() {
+        return precioNoche;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPrecioNoche(double precioNoche) {
+        this.precioNoche = precioNoche;
     }
 
-    public int getPisos() {
-        return pisos;
-    }
 
-    public void setPisos(int pisos) {
-        this.pisos = pisos;
-    }
-
-    public int getCantHabitaciones() {
-        return cantHabitaciones;
-    }
-
-    public void setCantHabitaciones(int cantHabitaciones) {
-        this.cantHabitaciones = cantHabitaciones;
-    }
      
 }

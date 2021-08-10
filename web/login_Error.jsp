@@ -51,14 +51,10 @@
       <div class="login-wrap">
         <p class="login-img"><i class="icon_lock_alt"></i></p>
         <div class="input-group">
-       <h3>ERROR</h3>
-       <h5>Usuario o Contraseña Incorrecta!</h5>
+            <h3 style="padding-left:10rem; ">ERROR!!!</h3>
+       <p style="padding-left:3rem; ">Usuario o Contraseña Incorrecta!</p>
      
-        <label class="checkbox">                
-                <span class="pull-right"> <a href="#"> omvido la contraseña?</a></span>
-            </label>
-       
-        <a class="btn btn-primary btn-lg btn-block" href="login.jsp" role="button"> Volver a Login</a>
+       <a class="btn btn-primary btn-lg btn-block" href="login.jsp" role="button" style="margin-left:2rem; color:#ffffff !important;"> Volver a Login</a>
       </div>
     </form>
     <div class="text-right">

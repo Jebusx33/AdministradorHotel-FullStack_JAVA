@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
 import javax.persistence.Table;
 
 /**
@@ -28,26 +27,20 @@ public class Empleado extends Persona implements Serializable {
     
     @OneToOne
     Usuario user;
-     @OneToMany
-    List<CheckDias> listaCheck;
-      @OneToMany
-    List<Reserva> listaReservas ;
+  
+
     public Empleado() {
     }
 
-    public Empleado(String cargo, Usuario user, List<CheckDias> listaCheck, List<Reserva> listaReservas) {
+    public Empleado(String cargo, Usuario user) {
         this.cargo = cargo;
         this.user = user;
-        this.listaCheck = listaCheck;
-        this.listaReservas = listaReservas;
     }
 
-    public Empleado(String cargo, Usuario user, List<CheckDias> listaCheck, List<Reserva> listaReservas, int id, String nombre, String apellido, Date fecha_Nac, String numDocumento, String tipoDocumento, String direccion) {
+    public Empleado(String cargo, Usuario user, int id, String nombre, String apellido, Date fecha_Nac, String numDocumento, String tipoDocumento, String direccion) {
         super(id, nombre, apellido, fecha_Nac, numDocumento, tipoDocumento, direccion);
         this.cargo = cargo;
         this.user = user;
-        this.listaCheck = listaCheck;
-        this.listaReservas = listaReservas;
     }
 
     public String getCargo() {
@@ -64,22 +57,6 @@ public class Empleado extends Persona implements Serializable {
 
     public void setUser(Usuario user) {
         this.user = user;
-    }
-
-    public List<CheckDias> getListaCheck() {
-        return listaCheck;
-    }
-
-    public void setListaCheck(List<CheckDias> listaCheck) {
-        this.listaCheck = listaCheck;
-    }
-
-    public List<Reserva> getListaReservas() {
-        return listaReservas;
-    }
-
-    public void setListaReservas(List<Reserva> listaReservas) {
-        this.listaReservas = listaReservas;
     }
 
     public int getId() {
@@ -138,10 +115,4 @@ public class Empleado extends Persona implements Serializable {
         this.direccion = direccion;
     }
 
-    void setFecha_Nac(String format) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-   
-   
 }

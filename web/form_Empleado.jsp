@@ -85,11 +85,10 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="username">Jenifer Smith</span>
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                                <img alt="" src="img/avatar1_small.png" style="width: 30px">
                             </span>
-                            <span class="username">Jenifer Smith</span>
-
                         </a>
 
                     </li>
@@ -109,6 +108,14 @@
                         <a class="" href="panelControl.jsp">
                             <i class="icon_house_alt"></i>
                             <span>Panel de Control</span>
+                        </a>
+                    </li>
+                        <li>
+                        <a class="" href="form_Reserva.jsp">
+                         <i class="fa fa-address-card-o" aria-hidden="true"></i>
+
+                            <span>Reserva</span>
+
                         </a>
                     </li>
                     <li class="sub-menu">

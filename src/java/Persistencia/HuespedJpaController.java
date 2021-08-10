@@ -27,10 +27,9 @@ public class HuespedJpaController implements Serializable {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
-  public HuespedJpaController() {
+ public HuespedJpaController() {
         emf = Persistence.createEntityManagerFactory("Arias_JesusGabriel_tpoFinalPU");
     }
-    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }

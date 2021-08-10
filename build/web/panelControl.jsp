@@ -24,7 +24,7 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        <!-- Bootstrap CSS -->
+        <!-- Bootstrap 3 themes generator -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- bootstrap theme -->
         <link href="css/bootstrap-theme.css" rel="stylesheet">
@@ -57,269 +57,421 @@
         ======================================================= -->
     </head>
     <body>
-          <!--/**** SESION *****/ -->
-    <%
-    HttpSession misession = request.getSession();
-    //compruebo que un usuario haya iniciado sesion
-    String usu = (String) request.getSession().getAttribute("usuario");
-    if (usu==null) {
-            response.sendRedirect("sinLogin.jsp");
-        }else{
-         Controladora control = new Controladora();
-         misession.setAttribute("control", control);
-    }
-    
-    
-    %>
-    
-    
+        <!--/**** SESION *****/ -->
+        <%
+            HttpSession misession = request.getSession();
+            //compruebo que un usuario haya iniciado sesion
+            String usu = (String) request.getSession().getAttribute("usuario");
+            if (usu == null) {
+                response.sendRedirect("sinLogin.jsp");
+            } else {
+                Controladora control = new Controladora();
+                misession.setAttribute("control", control);
+            }
 
-        
 
-  
-    <!-- container section start -->
-    <section id="container" class="">
+        %>
 
-    
-      <!--/**** CONTROLADORA *****/ -->
 
-    <%
-        Controladora control = new Controladora();
-    %>
 
-        <header class="header dark-bg">
-            <div class="toggle-nav">
-                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i
-                        class="icon_menu"></i></div>
-            </div>
 
-            <!--logo start-->
-            <a href="panelControl.jsp" class="logo">Hotel <span class="lite">Admin</span></a>
-            <!--logo end-->
 
-            <div class="nav search-row" id="top_menu">
-                <!--  search form start -->
-                <ul class="nav top-menu">
-                    <li>
-                        <form class="navbar-form">
-                            <input class="form-control" placeholder="Search" type="text">
-                        </form>
-                    </li>
-                </ul>
-                <!--  search form end -->
-            </div>
 
-            <div class="top-nav notification-row">
-                <!-- notificatoin dropdown start-->
-                <ul class="nav pull-right top-menu">
+        <!-- container section start -->
+        <section id="container" class="">
 
-                    <!-- user login dropdown start-->
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                            <span class="username">Jenifer Smith</span>
 
-                        </a>
+            <!--/**** CONTROLADORA *****/ -->
 
-                    </li>
-                    <!-- user login dropdown end -->
-                </ul>
-                <!-- notificatoin dropdown end-->
-            </div>
-        </header>
-        <!--header end-->
+            <%        Controladora control = new Controladora();
+            %>
 
-        <!--sidebar start-->
-        <aside>
-            <div id="sidebar" class="nav-collapse ">
-                <!-- sidebar menu start-->
-                <ul class="sidebar-menu">
-                    <li class="active">
-                        <a class="" href="panelControl.jsp">
-                            <i class="icon_house_alt"></i>
-                            <span>Panel de Control</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;" class="">
-                            <i class="icon_document_alt"></i>
-                            <span>Registro</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub form_registros">
-                            <li><a class="" href="form_Empleado.jsp">Ingrear Empleado</a></li>
-                            <li><a class="" href="form_Huesped.jsp">Ingresar Huésped</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;" class="">
-                            <i class="icon_desktop"></i>
-                            <span>UI Fitures</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="" href="general.html">Elements</a></li>
-                            <li><a class="" href="buttons.html">Buttons</a></li>
-                            <li><a class="" href="grids.html">Grids</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="" href="widgets.html">
-                            <i class="icon_genius"></i>
-                            <span>Widgets</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" href="chart-chartjs.html">
-                            <i class="icon_piechart"></i>
-                            <span>Charts</span>
-
-                        </a>
-
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;" class="">
-                            <i class="icon_table"></i>
-                            <span>Tablas</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="" href="#listaEmpleados">Empleados Registrados</a></li>
-                            <li><a class="" href="#listaHuespedes">Huespedes Registrados</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;" class="">
-                            <i class="icon_documents_alt"></i>
-                            <span>Pages</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="" href="profile.html">Profile</a></li>
-                            <li><a class="" href="login.html"><span>Login Page</span></a></li>
-                            <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
-                            <li><a class="" href="blank.html">Blank Page</a></li>
-                            <li><a class="" href="sinLogin.jsp.html">404 Error</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-                <!-- sidebar menu end-->
-            </div>
-        </aside>
-        <!--sidebar end-->
-
-        <!--main content start-->
-        <section id="main-content">
-            <section class="wrapper">
-                <!--overview start-->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3 class="page-header"><i class="fa fa-laptop"></i>Panel de Control</h3>
-                        <ol class="breadcrumb">
-                            <li><i class="fa fa-laptop"></i>Panel de Control</li>
-                        </ol>
-                    </div>
+            <header class="header dark-bg">
+                <div class="toggle-nav">
+                    <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i
+                            class="icon_menu"></i></div>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="info-box blue-bg">
-                            <i class="fa fa-credit-card-alt"></i>
-                            <div class="count">$6.674</div>
-                            <div class="title">Precio Por Noche</div>
-                        </div>
-                        <!--/.info-box-->
-                    </div>
-                    <!--/.col-->
+                <!--logo start-->
+                <a href="panelControl.jsp" class="logo">Hotel <span class="lite">Admin</span></a>
+                <!--logo end-->
 
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="info-box brown-bg">
-                            <i class="fa fa-bed"></i>
-                            <div class="count">200</div>
-                            <div class="title">habitaciones Dispinibles</div>
-                        </div>
-                        <!--/.info-box-->
-                    </div>
-                    <!--/.col-->
-
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="info-box dark-bg">
-                            <i class="fa fa-address-card-o"></i>
-                            <div class="count">121</div>
-                            <div class="title">Huespedes Registrados</div>
-                        </div>
-                        <!--/.info-box-->
-                    </div>
-                    <!--/.col-->
+                <div class="nav search-row" id="top_menu">
+                    <!--  search form start -->
+                    <ul class="nav top-menu">
+                        <li>
+                            <form class="navbar-form">
+                                <input class="form-control" placeholder="Search" type="text">
+                            </form>
+                        </li>
+                    </ul>
+                    <!--  search form end -->
                 </div>
 
-                <!--/.row-->
+                <div class="top-nav notification-row">
+                    <!-- notificatoin dropdown start-->
+                    <ul class="nav pull-right top-menu">
 
-                <!--Botones de registro--> 
+                        <!-- user login dropdown start-->
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown" href="#">
+                                <!--Traer un dato Ej:nombre de usuario-->
+                                <h3 style="display:inline; padding-right:1rem">Bienvenido: </h3>
+                                <span class="username" style="text-transform: uppercase; padding-right:.5rem;"><%= request.getSession().getAttribute("usuario")%></span>
+                                <span class="profile-ava">
+                                    <img alt="" src="img/avatar1_small.png" style="width: 30px">
+                                </span>
+                            </a>
 
+                        </li>
+                        <!-- user login dropdown end -->
+                    </ul>
+                    <!-- notificatoin dropdown end-->
+                </div>
+            </header>
+            <!--header end-->
 
-                <div class="col-lg-12 col-md-12">
-                    <div class="panel panel-default">
-                        <header class="panel-heading">
-                            Registrar Huesped
-                        </header>
-                        <div class="panel-body btnRegtroIn col-lg-12">
-                            <a class="btn btn-success btn-lg btn-block" href="form_Huesped.jsp" role="button">  Registrar Huesped  <i class="fa fa-users"aria-hidden="true"></i></a>
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar" class="nav-collapse ">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu">
+                        <li class="active">
+                            <a class="" href="panelControl.jsp">
+                                <i class="icon_house_alt"></i>
+                                <span>Panel de Control</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="form_Reserva.jsp">
+                                <i class="fa fa-address-card-o" aria-hidden="true"></i>
 
-                            <a class="btn btn-primary btn-lg btn-block" href="form_Empleado.jsp" role="button">  Registrar Empleado  <i class="fa fa-user-circle-o"aria-hidden="true"></i></a>
+                                <span>Reserva</span>
+
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" class="">
+                                <i class="icon_document_alt"></i>
+                                <span>Registro</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                            <ul class="sub form_registros">
+                                <li><a class="" href="form_Empleado.jsp">Ingrear Empleado</a></li>
+                                <li><a class="" href="form_Huesped.jsp">Ingresar Huésped</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" class="">
+                                <i class="icon_desktop"></i>
+                                <span>UI Fitures</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                            <ul class="sub">
+                                <li><a class="" href="general.html">Elements</a></li>
+                                <li><a class="" href="buttons.html">Buttons</a></li>
+                                <li><a class="" href="grids.html">Grids</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="" href="widgets.html">
+                                <i class="icon_genius"></i>
+                                <span>Widgets</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="chart-chartjs.html">
+                                <i class="icon_piechart"></i>
+                                <span>Charts</span>
+
+                            </a>
+
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" class="">
+                                <i class="icon_table"></i>
+                                <span>Tablas</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                            <ul class="sub">
+                                <li><a class="" href="#listaEmpleados">Empleados Registrados</a></li>
+                                <li><a class="" href="#listaHuespedes">Huespedes Registrados</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" class="">
+                                <i class="icon_documents_alt"></i>
+                                <span>Pages</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                            <ul class="sub">
+                                <li><a class="" href="profile.html">Profile</a></li>
+                                <li><a class="" href="login.html"><span>Login Page</span></a></li>
+                                <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
+                                <li><a class="" href="blank.html">Blank Page</a></li>
+                                <li><a class="" href="sinLogin.jsp.html">404 Error</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper">
+                    <!--overview start-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header"><i class="fa fa-laptop"></i>Panel de Control</h3>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-laptop"></i>Panel de Control</li>
+                            </ol>
                         </div>
                     </div>
-                </div>
-                </div
 
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="info-box blue-bg">
+                                <i class="fa fa-credit-card-alt"></i>
+                                <div class="count">$<%= request.getSession().getAttribute("precioNoche")%></div>
+                                <div class="title">Precio Por Noche</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
 
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="info-box brown-bg">
+                                <i class="fa fa-bed"></i>
+                                <div class="count">200</div>
+                                <div class="title">habitaciones Dispinibles</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
 
-                <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="info-box dark-bg">
+                                <i class="fa fa-address-card-o"></i>
+                                <div class="count">121</div>
+                                <div class="title">Huespedes Registrados</div>
+                            </div>
+                            <!--/.info-box-->
+                        </div>
+                        <!--/.col-->
+                    </div>
 
-                    <div class="col-lg-12 col-md-12">
+                    <!--/.row-->
 
+                    <br>
+                    
+                         <!-- ver Reservas --> 
+                    
+                    
+                          <div class="col-lg-12 col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h2><i class="fa fa-flag-o banderaOK " id="banderaOK"></i><strong> Ultimo Registro Ingresado</strong></h2>
+                            <header class="panel-heading">
+                                 <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                             Ver Reservas
+                            </header>
+                           <form action="svConsultaReserva" method="GET">
+                                        <a class="btn btn-primary btn-lg btn-block" href="svConsultaReserva" class="SUBMIT">VER RESERVAS</a>
+                                    </form>
+                            
+                            
                             </div>
-                            <div class="panel-body">
-                                <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm "
-                                       cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
+                        </div>
+                    </div>
+                    </div
+                    
+                
+                      <!-- card botoens -->
+                    <div class="row">
+                    
+                  <div class="col-lg-4">
+                        <!--Project Activity start-->
+                        <section class="panel">
+                            <div class="panel-body progress-panel">
+                                <div class="row">
+                                    <div class="col-lg-8 task-progress pull-left">
+                                        <h1 style="display:inline; padding-right:1rem">Ingresar Reserva </h1>
+                                     
+                                    </div>
+                                   
+                                </div>
+                            </div>
 
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Apelldo</th>
-                                            <th scope="col">Fecha de Nacimiento</th>
-                                            <th scope="col">Numero. Doc</th>
-                                            <th scope="col">Tipo. Doc</th>
-                                            <th scope="col">Direccion</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="table-success">
-                                            
-                                            <td><%= session.getAttribute("nombre")%></td>
-                                            <td><%= session.getAttribute("apellido")%></td>
-                                            <td><%= session.getAttribute("fechaNac")%></td>
-                                            <td><%= session.getAttribute("numDocumento")%></td>
-                                            <td><%= session.getAttribute("tipoDocumento")%></td>
-                                            <td><%= session.getAttribute("direccion")%></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                         
+                             <div class=" btnRegtroIn  col-lg-12">
+                                 <a class="btn btn-success btn-lg btn-block "  style="margin-top: 1rem; margin-bottom: 1rem; font-weight: bolder;" href="form_Reserva.jsp" role="button"> Reserva </a>
+                            </div>
+                        </section>
+                        <!--Project Activity end-->
+                        
+                           <!--Project Activity start-->
+                          <section class="panel">
+                            <div class="panel-body progress-panel">
+                                <div class="row">
+                                    <div class="col-lg-8 task-progress pull-left">
+                                       
+                                        <h1 style="display:inline; padding-right:1rem">Ingresar Empleado </h1>
+                                     
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                         
+                             <div class=" btnRegtroIn  col-lg-12">
+                                 <a class="btn btn-success btn-lg btn-block "  style="margin-top: 1rem; margin-bottom: 1rem; font-weight: bolder;" href="form_Empleado.jsp" role="button"> Empleado </a>
+                            </div>
+                        </section>
+                        <!--Project Activity end-->
+                        
+                    </div>
+                              <!--end-->
+                              
+                     <div class="col-lg-4">
+                        <!--Project Activity start-->
+                        <section class="panel">
+                            <div class="panel-body progress-panel">
+                                <div class="row">
+                                    <div class="col-lg-8 task-progress pull-left">
+                                        <h1 style="display:inline; padding-right:1rem">Ingresar Huesped </h1>
+                                     
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                         
+                             <div class=" btnRegtroIn  col-lg-12">
+                                 <a class="btn btn-success btn-lg btn-block "  style="margin-top: 1rem; margin-bottom: 1rem; font-weight: bolder;" href="form_Huesped.jsp" role="button"> Huesped </a>
+                            </div>
+                        </section>
+                        <!--Project Activity end-->
+                        
+                           <!--Project Activity start-->
+                          <section class="panel">
+                            <div class="panel-body progress-panel">
+                                <div class="row">
+                                    <div class="col-lg-8 task-progress pull-left">
+                                       
+                                        <h1 style="display:inline; padding-right:1rem">Ingresar Usuario</h1>
+                                     
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                         
+                             <div class=" btnRegtroIn  col-lg-12">
+                                 <a class="btn btn-success btn-lg btn-block "  style="margin-top: 1rem; margin-bottom: 1rem; font-weight: bolder;" href="form_Usuario.jsp" role="button"> Usuario </a>
+                            </div>
+                        </section>
+                        <!--Project Activity end-->
+                        
+                    </div>          
+                        <!--end-->
+                        
+                             <!--end-->
+                              
+                     <div class="col-lg-4">
+                        <!--Project Activity start-->
+                        <section class="panel">
+                            <div class="panel-body progress-panel">
+                                <div class="row">
+                                    <div class="col-lg-8 task-progress pull-left">
+                                        <h1 style="display:inline; padding-right:1rem">Ingresar Habitacion </h1>
+                                     
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                         
+                             <div class=" btnRegtroIn  col-lg-12">
+                                 <a class="btn btn-success btn-lg btn-block "  style="margin-top: 1rem; margin-bottom: 1rem; font-weight: bolder;" href="form_Habitacion.jsp" role="button"> Habitacion </a>
+                            </div>
+                        </section>
+                        <!--Project Activity end-->
+                        
+                           <!--Project Activity start-->
+                          <section class="panel">
+                            <div class="panel-body progress-panel">
+                                <div class="row">
+                                    <div class="col-lg-8 task-progress pull-left">
+                                       
+                                        <h1 style="display:inline; padding-right:1rem">Ingresar Usuario</h1>
+                                     
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                         
+                             <div class=" btnRegtroIn  col-lg-12">
+                                 <a class="btn btn-success btn-lg btn-block "  style="margin-top: 1rem; margin-bottom: 1rem; font-weight: bolder;" href="form_Usuario.jsp" role="button"> Usuario </a>
+                            </div>
+                        </section>
+                        <!--Project Activity end-->
+                        
+                    </div>          
+                        <!--end-->
+                    </div>
+                    <!--- end-->
+
+
+<br><br>
+                    
+                   <!--Ultimo Registro-->
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2><i class="fa fa-flag-o banderaOK " id="banderaOK"></i><strong> Ultimo Registro Ingresado</strong></h2>
+                                </div>
+                                <div class="panel-body">
+                                    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm "
+                                           cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Apelldo</th>
+                                                <th scope="col">Fecha de Nacimiento</th>
+                                                <th scope="col">Numero. Doc</th>
+                                                <th scope="col">Tipo. Doc</th>
+                                                <th scope="col">Direccion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-success">
+
+                                                <td><%= session.getAttribute("nombre")%></td>
+                                                <td><%= session.getAttribute("apellido")%></td>
+                                                <td><%= session.getAttribute("fechaNac")%></td>
+                                                <td><%= session.getAttribute("numDocumento")%></td>
+                                                <td><%= session.getAttribute("tipoDocumento")%></td>
+                                                <td><%= session.getAttribute("direccion")%></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
 
 
 
@@ -328,263 +480,272 @@
 
 
 
+                    <!-- Tabla Usuaios -->
 
-                <!-- Tabla Usuaios -->
+                    <%
+                        List<Empleado> listaEmpleados = control.traerEmpleados();
+                    %>
 
-                <%
-                    List<Empleado> listaEmpleados = control.traerEmpleados();
-                %>
+                    <div class="row" id="listaEmpleados">
 
-                <div class="row" id="listaEmpleados">
+                        <div class="col-lg-12 col-md-12">
 
-                    <div class="col-lg-12 col-md-12">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h2><i class="fa fa-user-circle-o red"></i><strong>Empleados registrados</strong></h2>
-                            </div>
-                            <div class="panel-body">
-                                <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm "
-                                       cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Acciones</th>
-                                            <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Apellido</th>
-                                            <th>Fecha de Nac</th>
-                                            <th>Numero. Doc</th>
-                                            <th>Tipo. Doc</th>
-                                            <th>Direccion</th>
-                                            <th>Cargo</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%  for (Empleado emp : listaEmpleados) {
-                                        %>
-                                        <tr>
-                                            <th scope="col"><a class="btn btn-warning btn-sm" href=""
-                                                               title="Bootstrap 3 themes generator">Modificar</a>
-                                                <a class="btn btn-danger btn-sm" href="" title="Bootstrap 3 themes generator">Eliminar</a>
-                                            </th>
-
-                                            <th scope="row"><%= emp.getId()%></th>
-                                            <td><%= emp.getNombre()%></td>
-                                            <td><%= emp.getApellido()%></td>
-                                            <%
-                                                //modifico el formato de fecha 
-                                                SimpleDateFormat formateadorEmp = new SimpleDateFormat("dd-MM-yyyy");
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2><i class="fa fa-user-circle-o red"></i><strong>Empleados registrados</strong></h2>
+                                </div>
+                                <div class="panel-body">
+                                    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm "
+                                           cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Acciones</th>
+                                                <th>ID</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Fecha de Nac</th>
+                                                <th>Numero. Doc</th>
+                                                <th>Tipo. Doc</th>
+                                                <th>Direccion</th>
+                                                <th>Cargo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%  for (Empleado emp : listaEmpleados) {
                                             %>
-                                            <td><%= formateadorEmp.format(emp.getFecha_Nac())%> </td>
-                                            <td><%= emp.getNumDocumento()%>  </td>
-                                            <td><%= emp.getTipoDocumento()%> </td>
-                                            <td><%= emp.getDireccion()%> </td>
-                                            <td><%= emp.getCargo()%> </td>
-                                        </tr>
-                                        <%}%>
-                                    </tbody>
-                                </table>
-                            </div>
+                                            <tr>
+                                                <th scope="col">
+                                                 <a class="btn btn-warning btn-sm" href=""
+                                                               title="Bootstrap 3 themes generator" style="font-weight: bolder;" >Modificar <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
 
-                        </div>
 
-                    </div>
+                                                <a class="btn btn-danger btn-sm" href="" title="Bootstrap 3 themes generator" style="font-weight: bolder; margin-left: .5rem;">Eliminar <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+                                                </th>
 
-                </div>
-
-                <!-- Tabla Usuario end -->
-
-                <!-- Tabla Huespedes -->
-                <%
-
-                    List<Huesped> listaHuespedes = control.traerHuespedes();
-                %>
-                <div class="row" id="listaHuespedes">
-
-                    <div class="col-lg-12 col-md-12">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h2><i class="fa fa-users red"></i><strong>Huespedes registrados</strong></h2>
-                            </div>
-                            <div class="panel-body">
-                                <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm "
-                                       cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Acciones</th>
-                                            <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Apellido</th>
-                                            <th>Fecha de Nac</th>
-                                            <th>Numero. Doc</th>
-                                            <th>Tipo. Doc</th>
-                                            <th>Direccion</th>
-                                            <th>Profesión</th>
-                                            <th>Habitación</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%  for (Huesped huesp : listaHuespedes) {
-                                        %>
-                                        <tr>
-                                            <th scope="col"><a class="btn btn-warning btn-sm" href=""
-                                                               title="Bootstrap 3 themes generator">Modificar</a>
-                                                <a class="btn btn-danger btn-sm" href="" title="Bootstrap 3 themes generator">Eliminar</a>
-                                            </th>
-                                            <th scope="row"><%= huesp.getId()%></th>
-                                            <td><%= huesp.getNombre()%></td>
-                                            <td><%= huesp.getApellido()%></td>
-                                            <td>
+                                                <th scope="row"><%= emp.getId()%></th>
+                                                <td><%= emp.getNombre()%></td>
+                                                <td><%= emp.getApellido()%></td>
                                                 <%
-                                                    SimpleDateFormat formateadorHuesp = new SimpleDateFormat("dd-MM-yyyy");
+                                                    //modifico el formato de fecha 
+                                                    SimpleDateFormat formateadorEmp = new SimpleDateFormat("dd-MM-yyyy");
                                                 %>
-                                                <%= formateadorHuesp.format(huesp.getFecha_Nac())%></td>
-                                            <td><%= huesp.getNumDocumento()%></td>
-                                            <td><%= huesp.getTipoDocumento()%></td>
-                                            <td><%= huesp.getDireccion()%></td>
-                                            <td><%= huesp.getProfesion()%></td>
-                                            <td>Triple</td>
-                                        </tr>
-                                        <%}%>
-                                    </tbody>
-                                </table>
+                                                <td><%= formateadorEmp.format(emp.getFecha_Nac())%> </td>
+                                                <td><%= emp.getNumDocumento()%>  </td>
+                                                <td><%= emp.getTipoDocumento()%> </td>
+                                                <td><%= emp.getDireccion()%> </td>
+                                                <td><%= emp.getCargo()%> </td>
+                                            </tr>
+                                            <%}%>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
-                <!-- Tabla Huesped end -->
+                    <!-- Tabla Usuario end -->
+
+                    <!-- Tabla Huespedes -->
+                    <%
+
+                        List<Huesped> listaHuespedes = control.traerHuespedes();
+                    %>
+                    <div class="row" id="listaHuespedes">
+
+                        <div class="col-lg-12 col-md-12">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2><i class="fa fa-users red"></i><strong>Huespedes registrados</strong></h2>
+                                </div>
+                                <div class="panel-body">
+                                    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm "
+                                           cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Acciones</th>
+                                                <th>ID</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Fecha de Nac</th>
+                                                <th>Numero. Doc</th>
+                                                <th>Tipo. Doc</th>
+                                                <th>Direccion</th>
+                                                <th>Profesión</th>
+                                                <th>Habitación</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%  for (Huesped huesp : listaHuespedes) {
+                                            %>
+                                            <tr>
+                                                <th scope="col">
+                                                 <a class="btn btn-warning btn-sm" href=""
+                                                               title="Bootstrap 3 themes generator" style="font-weight: bolder;" >Modificar <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
 
 
+                                                <a class="btn btn-danger btn-sm" href="" title="Bootstrap 3 themes generator" style="font-weight: bolder; margin-left: .5rem;">Eliminar <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+                                                </th>
+                                                <th scope="row"><%= huesp.getId()%></th>
+                                                <td><%= huesp.getNombre()%></td>
+                                                <td><%= huesp.getApellido()%></td>
+                                                <td>
+                                                    <%
+                                                        SimpleDateFormat formateadorHuesp = new SimpleDateFormat("dd-MM-yyyy");
+                                                    %>
+                                                    <%= formateadorHuesp.format(huesp.getFecha_Nac())%></td>
+                                                <td><%= huesp.getNumDocumento()%></td>
+                                                <td><%= huesp.getTipoDocumento()%></td>
+                                                <td><%= huesp.getDireccion()%></td>
+                                                <td><%= huesp.getProfesion()%></td>
+                                                <td>Triple</td>
+                                            </tr>
+                                            <%}%>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                </div>
-                <div class="widget-foot">
-                    <!-- Footer goes here -->
-                </div>
-                </div>
-                </div>
+                            </div>
 
-                </div>
+                        </div>
 
-                </div>
-                <!-- project team & activity end -->
+                    </div>
+                    <!-- Tabla Huesped end -->
 
+           
+
+                  
+
+                    </div>
+                    <div class="widget-foot">
+                        <!-- Footer goes here -->
+                    </div>
+                    </div>
+                    </div>
+
+                    </div>
+
+                    </div>
+                    <!-- project team & activity end -->
+
+                </section>
+                <div class="text-right">
+                    <div class="credits">
+                        <!--
+                          All the links in the footer should remain intact.
+                          You can delete the links only if you purchased the pro version.
+                          Licensing information: https://bootstrapmade.com/license/
+                          Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+                        -->
+                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    </div>
+                </div>
             </section>
-            <div class="text-right">
-                <div class="credits">
-                    <!--
-                      All the links in the footer should remain intact.
-                      You can delete the links only if you purchased the pro version.
-                      Licensing information: https://bootstrapmade.com/license/
-                      Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-                    -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-            </div>
+            <!--main content end-->
         </section>
-        <!--main content end-->
-    </section>
-    <!-- container section start -->
+        <!-- container section start -->
 
-    <!-- javascripts -->
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui-1.10.4.min.js"></script>
-    <script src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
-    <!-- bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- nice scroll -->
-    <script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-    <!-- charts scripts -->
-    <script src="assets/jquery-knob/js/jquery.knob.js"></script>
-    <script src="js/jquery.sparkline.js" type="text/javascript"></script>
-    <script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <!-- jQuery full calendar -->
-    <script src="js/fullcalendar.min.js">
-    </script>
-    <!-- Full Google Calendar - Calendar -->
-    <script src="assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
-    <!--script for this page only-->
-    <script src="js/calendar-custom.js"></script>
-    <script src="js/jquery.rateit.min.js"></script>
-    <!-- custom select -->
-    <script src="js/jquery.customSelect.min.js"></script>
-    <script src="assets/chart-master/Chart.js"></script>
+        <!-- javascripts -->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.10.4.min.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+        <!-- bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- nice scroll -->
+        <script src="js/jquery.scrollTo.min.js"></script>
+        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <!-- charts scripts -->
+        <script src="assets/jquery-knob/js/jquery.knob.js"></script>
+        <script src="js/jquery.sparkline.js" type="text/javascript"></script>
+        <script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+        <script src="js/owl.carousel.js"></script>
+        <!-- jQuery full calendar -->
+        <script src="js/fullcalendar.min.js">
+        </script>
+        <!-- Full Google Calendar - Calendar -->
+        <script src="assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
+        <!--script for this page only-->
+        <script src="js/calendar-custom.js"></script>
+        <script src="js/jquery.rateit.min.js"></script>
+        <!-- custom select -->
+        <script src="js/jquery.customSelect.min.js"></script>
+        <script src="assets/chart-master/Chart.js"></script>
 
-    <!--custome script for all page-->
-    <script src="js/scripts.js"></script>
-    <!-- custom script for this page-->
-    <script src="js/sparkline-chart.js"></script>
-    <script src="js/easy-pie-chart.js"></script>
-    <script src="js/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="js/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="js/xcharts.min.js"></script>
-    <script src="js/jquery.autosize.min.js"></script>
-    <script src="js/jquery.placeholder.min.js"></script>
-    <script src="js/gdp-data.js"></script>
-    <script src="js/morris.min.js"></script>
-    <script src="js/sparklines.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/jquery.slimscroll.min.js"></script>
-    <script>
-        /* Tablas*/
-        $(document).ready(function () {
-            $('#dtHorizontalVerticalExample').DataTable({
-                "scrollX": true,
-                "scrollY": 200,
+        <!--custome script for all page-->
+        <script src="js/scripts.js"></script>
+        <!-- custom script for this page-->
+        <script src="js/sparkline-chart.js"></script>
+        <script src="js/easy-pie-chart.js"></script>
+        <script src="js/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="js/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="js/xcharts.min.js"></script>
+        <script src="js/jquery.autosize.min.js"></script>
+        <script src="js/jquery.placeholder.min.js"></script>
+        <script src="js/gdp-data.js"></script>
+        <script src="js/morris.min.js"></script>
+        <script src="js/sparklines.js"></script>
+        <script src="js/charts.js"></script>
+        <script src="js/jquery.slimscroll.min.js"></script>
+        <script>
+            /* Tablas*/
+            $(document).ready(function () {
+                $('#dtHorizontalVerticalExample').DataTable({
+                    "scrollX": true,
+                    "scrollY": 200,
+                });
+                $('.dataTables_length').addClass('bs-select');
             });
-            $('.dataTables_length').addClass('bs-select');
-        });
 
 
-        //knob
-        $(function () {
-            $(".knob").knob({
-                'draw': function () {
-                    $(this.i).val(this.cv + '%')
-                }
-            })
-        });
-
-        //carousel
-        $(document).ready(function () {
-            $("#owl-slider").owlCarousel({
-                navigation: true,
-                slideSpeed: 300,
-                paginationSpeed: 400,
-                singleItem: true
-
+            //knob
+            $(function () {
+                $(".knob").knob({
+                    'draw': function () {
+                        $(this.i).val(this.cv + '%')
+                    }
+                })
             });
-        });
 
-        //custom select box
+            //carousel
+            $(document).ready(function () {
+                $("#owl-slider").owlCarousel({
+                    navigation: true,
+                    slideSpeed: 300,
+                    paginationSpeed: 400,
+                    singleItem: true
 
-        $(function () {
-            $('select.styled').customSelect();
-        });
-
-        /* ---------- Map ---------- */
-        $(function () {
-            $('#map').vectorMap({
-                map: 'world_mill_en',
-                series: {
-                    regions: [{
-                            values: gdpData,
-                            scale: ['#000', '#000'],
-                            normalizeFunction: 'polynomial'
-                        }]
-                },
-                backgroundColor: '#eef3f7',
-                onLabelShow: function (e, el, code) {
-                    el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-                }
+                });
             });
-        });
-    </script>
+
+            //custom select box
+
+            $(function () {
+                $('select.styled').customSelect();
+            });
+
+            /* ---------- Map ---------- */
+            $(function () {
+                $('#map').vectorMap({
+                    map: 'world_mill_en',
+                    series: {
+                        regions: [{
+                                values: gdpData,
+                                scale: ['#000', '#000'],
+                                normalizeFunction: 'polynomial'
+                            }]
+                    },
+                    backgroundColor: '#eef3f7',
+                    onLabelShow: function (e, el, code) {
+                        el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

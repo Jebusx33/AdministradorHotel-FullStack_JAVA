@@ -11,12 +11,15 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.metamodel.SingularAttribute;
 
 /**
  *
  * @author Jesus Arias
  */
 public class Controladora {
+
+ 
 
     ControladoraPersistencia controlPersi = new ControladoraPersistencia();
     private List <Usuario> listaUsuarios;
@@ -54,8 +57,8 @@ public class Controladora {
         huesp.setNombre(nombre);
         huesp.setApellido(apellido);
         // Date fechaDeNac = new Date(fechaNac);
-        SimpleDateFormat formatEmp = new SimpleDateFormat("yyyy-mm-dd");
-        Date fechaDeNac = formatEmp.parse(fechaNac);
+        SimpleDateFormat formatHesp = new SimpleDateFormat("yyyy-mm-dd");
+        Date fechaDeNac = formatHesp.parse(fechaNac);
         huesp.setFecha_Nac(fechaDeNac);
         huesp.setNumDocumento(numDocumento);
         huesp.setTipoDocumento(tipoDocumento);
@@ -65,6 +68,8 @@ public class Controladora {
         controlPersi.CrearHuesped(huesp);
     }
 
+   
+    
     //para traer lista de Empleados
     public List<Huesped> traerHuespedes() {
         return controlPersi.traerHuespedes();
@@ -83,4 +88,51 @@ public class Controladora {
         return siNo;
     }
 
+       public void crearReserva(String fechaReserva, String checkIn, String checkPOut, double costoTotal) throws ParseException {
+         Reserva reserv = new Reserva();
+       
+         reserv.setId_reserva(0);
+            SimpleDateFormat formatReserva = new SimpleDateFormat("yyyy-mm-dd");
+            Date fechaDeReserv = formatReserva.parse(fechaReserva);
+            Date fechaDeCheckIn = formatReserva.parse(checkIn);
+            Date fechaDeCheckOut = formatReserva.parse(checkPOut);
+            reserv.setFechaReserva(fechaDeReserv);
+            reserv.setCheckIn(fechaDeCheckIn);
+            reserv.setCheckPOut(fechaDeCheckOut);
+            reserv.setCostoTotal(costoTotal);
+            controlPersi.CrearResev(reserv);
+    }
+ //para traer lista de Empleados
+    public List<Reserva> traerReservas() {
+        return controlPersi.traerReserva();
+    }
+
+
+
+    public void crearUsuario(String usuario, String contrasenia) {
+        Usuario user = new Usuario();
+      
+       user.setUsuario(usuario);
+       user.setContrasenia(contrasenia);
+       controlPersi.CrearUsuario(user);
+    }
+    
+     
+    public void crearHabitacion(String nombreHabit, int pisoHabit, String tipoHabit, double precioNoche) {
+       
+           Habitacion habit = new Habitacion();
+           
+           habit.setNombreHabit(nombreHabit);
+           habit.setPisoHabit(pisoHabit);
+           habit.setTipoHabit(tipoHabit);
+           habit.setPrecioNoche(precioNoche);
+           
+            controlPersi.CrearHabitacion(habit);
+    }
+
+ 
+   public  void borrarReserva(int id) {
+      controlPersi.borrarReserva(id);
+       
+    }
 }

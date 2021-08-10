@@ -31,18 +31,16 @@ public class Usuario implements Serializable{
     String usuario;
     String contrasenia;
     int cantidadRservas;
-      @OneToMany
-    List<Reserva> listaReservas ;
+  
 
     public Usuario() {
     }
 
-    public Usuario(int id_usuario, String usuario, String contrasenia, int cantidadRservas, List<Reserva> listaReservas) {
+    public Usuario(int id_usuario, String usuario, String contrasenia, int cantidadRservas) {
         this.id_usuario = id_usuario;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
         this.cantidadRservas = cantidadRservas;
-        this.listaReservas = listaReservas;
     }
 
     public int getId_usuario() {
@@ -77,13 +75,7 @@ public class Usuario implements Serializable{
         this.cantidadRservas = cantidadRservas;
     }
 
-    public List<Reserva> getListaReservas() {
-        return listaReservas;
-    }
-
-    public void setListaReservas(List<Reserva> listaReservas) {
-        this.listaReservas = listaReservas;
-    }
+    
 
     
 }

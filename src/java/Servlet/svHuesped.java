@@ -75,7 +75,7 @@ public class svHuesped extends HttpServlet {
             //respondemos al jsp que queremos mostrar los datos
             response.sendRedirect("panelControl.jsp");
         } catch (ParseException ex) {
-           System.err.println("error al crear Hueped en servelet");;
+           System.err.println("error al crear Hueped en servelet");
         }
     }
 
